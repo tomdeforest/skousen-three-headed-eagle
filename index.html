@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+   <link rel="stylesheet" href="bp/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="bp/print.css" type="text/css" media="print"> 
+   <!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+	<title>The Balanced Center » Small &amp; Simple Things</title>
+	
+	<script src="js/mootools-release-1.11.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css" media="screen">
+		body {
+			text-align:justify;
+		}
+		#balance {
+			width:400px;
+			margin:0 auto;
+		}
+		#govt {
+			background:#ccc;
+			height:20px;
+			width:400px;
+			margin:0 auto;
+		}
+		#knob {
+			background:#000;
+			height:20px;
+			width:20px;
+		}
+		#labels {
+			position:relative;
+			margin:0 auto;
+			text-align:center;
+		}
+		#holder {
+			height:400px;
+			text-align:center;
+		}
+		.tyr {
+			position:absolute;
+			left:0;
+			text-align:left;
+		}
+		.anar {
+			position:absolute;
+			right:0;
+			top:0;
+			text-align:right;
+		}
+		h1, h2 {
+			text-transform:uppercase;
+			text-align:center;
+		}
+		h1 a {
+			display:block;
+			background: url(http://smallandsimplethings.org/img/snst.png) no-repeat scroll transparent;
+			height: 37px;
+			left: 168px;
+			text-indent: -9999em;
+			width: 573px;
+			margin:0 auto;
+		}
+		.fleur {
+			float:none;
+		}
+		.main {
+			text-align: center;
+			padding:1.5em;
+		}
+		.alt {
+			background-color:#eee;
+		}
+		.center {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The Balanced Center</h1>
+	<div id="balance">
+		<p>A little while ago, I <a href="http://www.smallandsimplethings.org/blog/?p=243" title="The Three Headed Eagle at Small and Simple Thoughts">posted an article</a> about the three-headed eagle and the balance of power. The image stuck in my head until it finally collided with my profession - web design. So I built an interactive widget that illustrates the balance of power in our government. Grab that slider and give it a little push or pull:</p>
+		<hr />
+		<p id="labels"><span class="tyr"><strong>Ruler's Law</strong><br />(Tyranny)</span> <strong>People's Law</strong><br />(Liberty) <span class="anar"><strong>No Law</strong><br />(Anarchy)</span></p>
+		<div id="govt" class="ui-slider-1">
+			<div id="knob"></div>
+		</div>
+		<div id="holder"><img id="eagle" src="three-headed-eagle.png" /></div>
+		<hr />
+		<p>The three heads of the eagle represent the three branches of our government. From left to right, Executive, Legislative (House and Senate), and the Judicial. The left wing is the problem solving wing of our government. The right wing is the conservation wing of our government.</p>
+		<p>The problem solving contingency within our government are the big thinkers who produce elaborate schemes to solve problems. The conservative contingency poses two questions in relation to the first groups proposed solutions:</p>
+		<ol>
+			<li>Can we afford it?</li>
+			<li>What will it do to the rights and individual freedom of the people?</li>
+		</ol>
+		<p>If the problem solving wing runs away with solutions and the conservation wing does not stop them then liberty is gradually given over to a tyrant. If the conservation wing completely sterilizes the government then the government is in danger of losing authority and anarchy results. <strong>A constant and unrelenting guard on government is necessary to preserve our liberty.</strong></p>
+		<hr />
+		<p>All concepts from pg. 23-26 of Skousen's book cited below.</p>
+		<ul><li>Skousen, W. (2007). <em>The 5000 year leap : the 28 great ideas that changed the world</em>. [S.l.]: <a href="http://www.nccs.net/" title="National Center for Constitutional Studies - NCCS">National Center for Constitutional Studies</a>. <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rft_id=urn%3Aisbn%3A9780880801485&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The%205000%20year%20leap%20%3A%20The%2028%20great%20ideas%20that%20changed%20the%20world&amp;rft.place=%5BS.l.%5D&amp;rft.publisher=National%20Center%20for%20Constitutional%20Studies&amp;rft.aufirst=W&amp;rft.aulast=Skousen&amp;rft.au=W%20Skousen&amp;rft.date=2007&amp;rft.isbn=9780880801485"></span></li></ul>
+	</div>
+	<p class="center"><a href="http://smallandsimplethings.org/"><img class="fleur" src="/img/fleur.png" alt="Small & Simple Things" /></a></p>
+
+	<script type="text/javascript" charset="utf-8">
+		/* Slider 1 */
+		var mySlide = new Slider($('govt'), $('knob'), {
+			steps: 800,
+			onChange: function(step){
+				var resizeEagle = new Fx.Styles('eagle', {duration: 0, transition: Fx.Transitions.linear});
+				resizeEagle.start({
+					'height': 400 - Math.abs(step-400),
+					'width': 400 - Math.abs(step-400)
+				});
+			}
+		}).set(400);
+		$('knob').setOpacity(0.5);
+	</script>
+<!--
+	blah
+	-->
+</body>
+</html>
